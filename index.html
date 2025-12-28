@@ -28,7 +28,8 @@
         .card img { width: 100%; height: 200px; object-fit: cover; filter: brightness(0.8); }
         .card-info { padding: 20px; text-align: center; flex-grow: 1; }
         .card-info h3 { color: var(--rojo); font-size: 1.2em; margin: 0; text-transform: uppercase; }
-        .price-tag { background: rgba(241, 196, 15, 0.1); color: var(--dorado); padding: 6px 12px; border-radius: 5px; font-weight: bold; display: inline-block; margin: 10px 0; border: 1px solid var(--dorado); }
+        .description { font-size: 0.85em; color: #ccc; margin: 10px 0; font-style: italic; line-height: 1.4; }
+        .price-tag { background: rgba(241, 196, 15, 0.1); color: var(--dorado); padding: 6px 12px; border-radius: 5px; font-weight: bold; display: inline-block; margin: 10px 0; border: 1px solid var(--dorado); font-size: 0.85em; }
 
         .option-box { background: rgba(142, 33, 19, 0.15); border: 1px dashed var(--dorado); border-radius: 10px; padding: 12px; margin-top: 10px; text-align: left; }
         .option-title { color: var(--dorado); font-size: 0.75em; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 5px; }
@@ -59,25 +60,36 @@
 
     <h2>🔥 Especialidades</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/combo.jpg"><div class="card-info"><h3>Combo Surtido (12 pzas)</h3><p>2 sopes, 2 tostadas, 2 blanditos, 2 molotes, 2 flautas y 2 empanadas</p><span class="price-tag">$300.00</span></div></div>
-        <div class="card"><img src="imagenes/estrujada.jpg"><div class="card-info"><h3>Estrujada</h3><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🥩 Carnes:</span><div class="tag-container"><span class="tag">Cecina</span><span class="tag">Chuleta</span><span class="tag">Pechuga</span><span class="tag">Enchilada</span><span class="tag">Huevo</span></div></div></div></div>
-        <div class="card"><img src="imagenes/chilaquiles.jpg"><div class="card-info"><h3>Chilaquiles</h3><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🌶️ Salsas:</span><div class="tag-container"><span class="tag">Rojos</span><span class="tag">Verdes</span><span class="tag">Campechanos</span></div></div></div></div>
+        <div class="card"><img src="imagenes/combo.jpg"><div class="card-info"><h3>Combo Surtido</h3><p class="description">12 PIEZAS: 2 sopes, 2 tostadas, 2 blanditos, 2 molotes, 2 flautas y 2 empanadas. Incluye papas fritas.</p><span class="price-tag">$300.00</span></div></div>
+        <div class="card"><img src="imagenes/estrujada.jpg"><div class="card-info"><h3>Estrujada</h3><p class="description">Bañada en frijoles, queso y aguacate.</p><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🥩 Carnes:</span><div class="tag-container"><span class="tag">Cecina</span><span class="tag">Chuleta</span><span class="tag">Pechuga</span><span class="tag">Enchilada</span><span class="tag">Huevo</span></div></div></div></div>
+        <div class="card"><img src="imagenes/chilaquiles.jpg"><div class="card-info"><h3>Chilaquiles</h3><p class="description">Rojos, verdes o campechanos. Acompañados de frijoles, queso y aguacate.</p><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🥩 Con Carne:</span><div class="tag-container"><span class="tag">Cecina</span><span class="tag">Chuleta</span><span class="tag">Campechanos</span></div></div></div></div>
     </div>
 
     <h2>🌮 Antojitos Papantecos</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/enchiladas.jpg"><div class="card-info"><h3>Enchiladas (6 pzas)</h3><span class="price-tag">Ord: $160 | Mixtas: $170| 1/2:$130 |1/2 Mixtas: $140 |1/2 Sencillas:$100</span><div class="option-box"><span class="option-title">🌶️ Salsas:</span><div class="tag-container"><span class="tag">Entomatadas</span><span class="tag">Enfrijoladas</span><span class="tag">Pipian</span><span class="tag">Morita</span><span class="tag">Mole</span><span class="tag">Chile Seco</span><span class="tag">Verdes</span></div></div></div></div>
-        <div class="card"><img src="imagenes/enmoladas.jpg"><div class="card-info"><h3>Enmoladas (5 pzas)</h3><span class="price-tag">Ord: $160 | 1/2 3 Pzas: $110</span><div class="option-box"><span class="option-title">🍗 Pieza de Pollo:</span><div class="tag-container"><span class="tag">Pechuga</span><span class="tag">Muslo</span><span class="tag">Pierna</span></div></div></div></div>
-        <div class="card"><img src="imagenes/sopes.jpg"><div class="card-info"><h3>Sopes (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2 3 pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/tostadas.jpg"><div class="card-info"><h3>Tostadas (5 pzas)</h3><span class="price-tag">Ord: $160 | 1/2 3 pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/flautas.jpg"><div class="card-info"><h3>Flautas pollo o desebrada (6 pzas)</h3><span class="price-tag">Ord: $155 | 1/2 4 pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/blanditos.jpg"><div class="card-info"><h3>Blanditos (6 pzas)</h3><span class="price-tag">Ord: $155 | 1/2 4 pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/blanditas.jpg"><div class="card-info"><h3>Blanditas (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2 3 pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/molotes.jpg"><div class="card-info"><h3>Molotes (6 pzas)</h3><span class="price-tag">Ord: $155 | 1/2 4 pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/empanadas.jpg"><div class="card-info"><h3>Empanadas (5 pzas)</h3><span class="price-tag">Ord: $160 | 1/2 3pzas: $110</span></div></div>
-        <div class="card"><img src="imagenes/picadas.jpg"><div class="card-info"><h3>Picadas (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2 3pzas: $100</span></div></div>
-        <div class="card"><img src="imagenes/texanos.jpg"><div class="card-info"><h3>Texanos (4 pzas)</h3><span class="price-tag">Ord: $165 | 1/2 2pzas: $115</span></div></div>
-        <div class="card"><img src="imagenes/pellizcada.jpg"><div class="card-info"><h3>Pellizcada</h3><span class="price-tag">$160.00</span></div></div>
+        <div class="card"><img src="imagenes/enchiladas.jpg"><div class="card-info"><h3>Enchiladas</h3><p class="description">Guarniciones: Frijoles negros guisados, queso fresco y aguacate.</p><span class="price-tag">Ord: $160 | Mixtas: $170 | 1/2: $130 | 1/2 Mix: $140 | 1/2 Sencillas: $100</span><div class="option-box"><span class="option-title">🌶️ Salsas:</span><div class="tag-container"><span class="tag">Entomatadas</span><span class="tag">Enfrijoladas</span><span class="tag">Pipian</span><span class="tag">Morita</span><span class="tag">Mole</span><span class="tag">Chile Seco</span><span class="tag">Verdes</span></div></div></div></div>
+        
+        <div class="card"><img src="imagenes/enmoladas.jpg"><div class="card-info"><h3>Enmoladas</h3><p class="description">Tortilla frita en mole y frijoles con pollo natural. Decorado de repollo, tomate, queso y aguacate.</p><span class="price-tag">Ord: $160 | 1/2 (3 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/sopes.jpg"><div class="card-info"><h3>Sopes</h3><p class="description">Con frijoles, lechuga, tomate, queso y aguacate.</p><span class="price-tag">Ord: $155 | 1/2 (3 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/tostadas.jpg"><div class="card-info"><h3>Tostadas</h3><p class="description">Con frijoles, lechuga, tomate, queso y aguacate.</p><span class="price-tag">Ord: $160 | 1/2 (3 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/flautas.jpg"><div class="card-info"><h3>Flautas (Pollo o Deshebrada)</h3><p class="description">Acompañadas de ensalada de lechuga y papas fritas.</p><span class="price-tag">Ord (6 pzas): $155 | 1/2 (4 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/blanditos.jpg"><div class="card-info"><h3>Blanditos</h3><p class="description">Bañados en salsa de tomate. Acompañados de frijoles y ensalada de lechuga.</p><span class="price-tag">Ord (6 pzas): $155 | 1/2 (4 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/blanditas.jpg"><div class="card-info"><h3>Blanditas</h3><p class="description">Tortilla frita con frijoles, pollo, repollo, tomate, queso y papas fritas.</p><span class="price-tag">Ord (5 pzas): $155 | 1/2 (3 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/molotes.jpg"><div class="card-info"><h3>Molotes</h3><p class="description">Rellenos de queso, pollo o puerco. Acompañados de frijoles y ensalada.</p><span class="price-tag">Ord (6 pzas): $155 | 1/2 (4 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/empanadas.jpg"><div class="card-info"><h3>Empanadas</h3><p class="description">Rellenas de guisado de res o choriqueso.</p><span class="price-tag">Ord (5 pzas): $160 | 1/2 (3 pzas): $110</span></div></div>
+        
+        <div class="card"><img src="imagenes/picadas.jpg"><div class="card-info"><h3>Picadas</h3><p class="description">Con chorizo al comal y manteca.</p><span class="price-tag">Ord (5 pzas): $155 | 1/2 (3 pzas): $100</span></div></div>
+        
+        <div class="card"><img src="imagenes/texanos.jpg"><div class="card-info"><h3>Texanos</h3><p class="description">Con chorizo, queso asadero, salsa de calabaza y cecina. Con ensalada de lechuga.</p><span class="price-tag">Ord (4 pzas): $165 | 1/2 (2 pzas): $115</span></div></div>
+        
+        <div class="card"><img src="imagenes/pellizcada.jpg"><div class="card-info"><h3>Pellizcada</h3><p class="description">Bañada en manteca, salsa de tomate y frijoles, lechuga, tomate, queso fresco y aguacate. Con chorizo y cecina.</p><span class="price-tag">$160.00</span></div></div>
     </div>
 
     <h2>🥣 Caldos y Pozole</h2>
@@ -88,42 +100,35 @@
 
     <h2>🍲 Comidas Corridas</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/mole.jpg"><div class="card-info"><h3>Mole de Pollo</h3><span class="price-tag">$170.00</span><div class="option-box"><span class="option-title">🍗 Elige tu pieza:</span><div class="tag-container"><span class="tag">Pechuga</span><span class="tag">Muslo</span><span class="tag">Pierna</span></div></div></div></div>
-        <div class="card"><img src="imagenes/caldo.jpg"><div class="card-info"><h3>Caldo de Pollo</h3><span class="price-tag">$150.00</span><div class="option-box"><span class="option-title">🍗 Elige tu pieza:</span><div class="tag-container"><span class="tag">Pechuga</span><span class="tag">Muslo</span><span class="tag">Pierna</span></div></div></div></div>
+        <div class="card"><img src="imagenes/mole.jpg"><div class="card-info"><h3>Mole de Pollo</h3><p class="description">Acompañado de arroz y tortillas hechas a mano.</p><span class="price-tag">$170.00</span></div></div>
+        <div class="card"><img src="imagenes/caldo.jpg"><div class="card-info"><h3>Caldo de Pollo</h3><p class="description">Guarnición: Arroz, tomate, cebolla y chile picado.</p><span class="price-tag">$150.00</span></div></div>
         <div class="card"><img src="imagenes/costilla_verde.jpg"><div class="card-info"><h3>Costillas en Salsa Verde</h3><span class="price-tag">$175.00</span></div></div>
         <div class="card"><img src="imagenes/costilla_seco.jpg"><div class="card-info"><h3>Costillas en Chile Seco</h3><span class="price-tag">$175.00</span></div></div>
         <div class="card"><img src="imagenes/bisteck.jpg"><div class="card-info"><h3>Bistec Ranchero</h3><span class="price-tag">$170.00</span></div></div>
         <div class="card"><img src="imagenes/chileajo.jpg"><div class="card-info"><h3>Chileajo de Puerco</h3><span class="price-tag">$175.00</span></div></div>
     </div>
 
+    <h2>🫔 Tamales y Otros</h2>
+    <div class="grid reveal">
+        <div class="card"><img src="imagenes/tamalcuchara.jpg"><div class="card-info"><h3>Tamal de Cuchara</h3><p class="description">De costilla de puerco.</p><span class="price-tag">$65.00</span></div></div>
+        <div class="card"><img src="imagenes/tamalpicadillo.jpg"><div class="card-info"><h3>Tamal de Picadillo</h3><p class="description">De picadillo de pollo.</p><span class="price-tag">$35.00</span></div></div>
+        <div class="card"><img src="imagenes/tamalmole.jpg"><div class="card-info"><h3>Tamal de Mole</h3><p class="description">De costilla de puerco.</p><span class="price-tag">$55.00</span></div></div>
+        <div class="card"><img src="imagenes/zacahuil.jpg"><div class="card-info"><h3>Zacahuil (Vie-Dom)</h3><span class="price-tag">Gde: $110 | CH: $80</span></div></div>
+        <div class="card"><img src="imagenes/bocoles.jpg"><div class="card-info"><h3>Bocoles (6 pzas)</h3><p class="description">2 guisados a elegir (Chicharrón, Huevo con chorizo, Salsa verde, etc.)</p><span class="price-tag">Ord: $155 | 1/2: $95 | Mixta $150</span></div></div>
+    </div>
+
     <h2>🍰 Postres</h2>
     <div class="grid reveal">
-        <div class="card">
-            <img src="imagenes/postre1.jpg">
-            <div class="card-info">
-                <h3>Plátanos Fritos</h3>
-                <span class="price-tag">$70.00</span>
-                <div class="option-box"><span class="option-title">✨ Con:</span><div class="tag-container"><span class="tag">Lechera</span><span class="tag">Crema</span><span class="tag">Queso</span></div></div>
-            </div>
-        </div>
+        <div class="card"><img src="imagenes/postre1.jpg"><div class="card-info"><h3>Plátanos Fritos</h3><span class="price-tag">$70.00</span><div class="option-box"><span class="option-title">✨ Con:</span><div class="tag-container"><span class="tag">Lechera</span><span class="tag">Crema</span><span class="tag">Queso</span></div></div></div></div>
         <div class="card"><img src="imagenes/postre2.jpg"><div class="card-info"><h3>Flan Napolitano</h3><span class="price-tag">$70.00</span></div></div>
         <div class="card"><img src="imagenes/chocoflan.jpg"><div class="card-info"><h3>Chocoflan</h3><span class="price-tag">$70.00</span></div></div>
         <div class="card"><img src="imagenes/cheesecake.jpg"><div class="card-info"><h3>Cheesecake Fresa Chocolate</h3><span class="price-tag">$80.00</span></div></div>
         <div class="card"><img src="imagenes/gelatina.jpg"><div class="card-info"><h3>Gelatina Mosaico</h3><span class="price-tag">$100.00</span></div></div>
     </div>
 
-    <h2>🫔 Tamales y Otros</h2>
-    <div class="grid reveal">
-        <div class="card"><img src="imagenes/tamalcuchara.jpg"><div class="card-info"><h3>Tamal de Cuchara</h3><span class="price-tag">$65.00</span></div></div>
-        <div class="card"><img src="imagenes/tamalpicadillo.jpg"><div class="card-info"><h3>Tamal de Picadillo</h3><span class="price-tag">$35.00</span></div></div>
-        <div class="card"><img src="imagenes/tamalmole.jpg"><div class="card-info"><h3>Tamal de Mole</h3><span class="price-tag">$55.00</span></div></div>
-        <div class="card"><img src="imagenes/zacahuil.jpg"><div class="card-info"><h3>Zacahuil (Vie-Dom)</h3><span class="price-tag">Gde: $110 | CH: $80</span></div></div>
-        <div class="card"><img src="imagenes/bocoles.jpg"><div class="card-info"><h3>Bocoles (6)</h3><span class="price-tag">Ord: $155 | 1/2: $95 | Mixta $150</span><div class="option-box"><span class="option-title">🍳 Guisados:</span><div class="tag-container"><span class="tag">Chicharrón</span><span class="tag">Huevo</span><span class="tag">Chorizo</span><span class="tag">Queso</span><span class="tag">Asado</span></div></div></div></div>
-    </div>
-
     <h2>🥤 Bebidas</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/aguas.jpg"><div class="card-info"><h3>Aguas Naturales</h3><p style="color: var(--dorado);">Limón, Jamaica o Horchata</p><span class="price-tag">1 Lt: $60 | 1/2 Lt: $40</span></div></div>
+        <div class="card"><img src="imagenes/aguas.jpg"><div class="card-info"><h3>Aguas Naturales</h3><span class="price-tag">1 Lt: $60 | 1/2 Lt: $40</span></div></div>
         <div class="card"><img src="imagenes/cafe.jpg"><div class="card-info"><h3>Café de Olla</h3><span class="price-tag">$50.00</span></div></div>
     </div>
 
@@ -146,8 +151,7 @@
             if (scrollPos > 1200) { bg1.style.opacity = "0"; bg2.style.opacity = "1"; }
             else { bg1.style.opacity = "1"; bg2.style.opacity = "0"; }
         });
-        window.onload = () => { document.querySelectorAll('.reveal')[0].classList.add('active'); };
+        window.onload = () => { if(document.querySelectorAll('.reveal')[0]) document.querySelectorAll('.reveal')[0].classList.add('active'); };
     </script>
 </body>
 </html>
-
