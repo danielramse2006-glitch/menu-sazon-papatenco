@@ -9,41 +9,50 @@
         :root { --rojo: #8e2113; --dorado: #f1c40f; --negro: #0a0a0a; --gris: rgba(26, 26, 26, 0.95); }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--negro); color: #fff; overflow-x: hidden; }
         
-        .parallax-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('imagenes/terraza.jpg');
-            background-size: cover; background-position: center; z-index: -1; transform: scale(1.1);
+        /* SISTEMA DE FONDOS QUE CAMBIAN AL DESLIZAR */
+        .parallax-bg-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
+        .bg-part { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            transition: opacity 1.2s ease-in-out; 
+        }
+        .overlay-dark {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 0; pointer-events: none;
+        }
+        
+        .foto1 { background-image: url('imagenes/terraza.jpg'); opacity: 1; z-index: -2; }
+        .foto2 { background-image: url('imagenes/terraza1.jpg'); opacity: 0; z-index: -1; }
 
-        header { height: 45vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .logo-img { max-width: 150px; border-radius: 50%; border: 3px solid var(--rojo); box-shadow: 0 0 20px var(--rojo); }
+        header { height: 45vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
+        .logo-img { max-width: 180px; border-radius: 8px; border: 3px solid var(--rojo); box-shadow: 0 0 20px var(--rojo); background: white; }
 
-        .bienvenida { background: var(--rojo); padding: 30px; margin: -30px 20px 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .bienvenida { background: var(--rojo); padding: 30px; margin: -30px 20px 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position: relative; z-index: 1; }
+        h2 { color: var(--dorado); text-align: center; text-transform: uppercase; margin: 60px 0 30px; text-shadow: 2px 2px 5px #000; border-bottom: 2px solid var(--rojo); display: table; margin-left: auto; margin-right: auto; padding-bottom: 5px; position: relative; z-index: 1; }
 
-        h2 { color: var(--dorado); text-align: center; text-transform: uppercase; margin: 60px 0 30px; text-shadow: 2px 2px 5px #000; border-bottom: 2px solid var(--rojo); display: table; margin-left: auto; margin-right: auto; padding-bottom: 5px; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; max-width: 1400px; margin: auto; }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; max-width: 1400px; margin: auto; position: relative; z-index: 1; }
         .card { background: var(--gris); border-radius: 15px; overflow: hidden; border: 1px solid #333; transition: 0.4s ease; backdrop-filter: blur(5px); }
         .card:hover { transform: translateY(-12px); border-color: var(--dorado); box-shadow: 0 15px 30px rgba(142, 33, 19, 0.5); }
-        
-        .card img { width: 100%; height: 200px; object-fit: cover; filter: brightness(0.8); transition: 0.4s; }
-        .card:hover img { filter: brightness(1.1); }
-        
+        .card img { width: 100%; height: 200px; object-fit: cover; filter: brightness(0.8); }
         .card-info { padding: 20px; text-align: center; }
-        .card-info h3 { color: var(--rojo); font-size: 1.2em; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .card-info p { font-size: 0.9em; color: #ccc; margin: 10px 0; line-height: 1.4; }
+        .card-info h3 { color: var(--rojo); font-size: 1.2em; margin: 0; text-transform: uppercase; }
+        .card-info p { font-size: 0.9em; color: #ccc; margin: 10px 0; }
         .price-tag { background: rgba(241, 196, 15, 0.1); color: var(--dorado); padding: 6px 12px; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 5px; border: 1px solid var(--dorado); }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
         .ws-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.5); border: 1px solid #fff; }
     </style>
 </head>
 <body>
 
-    <div class="parallax-bg"></div>
+    <div class="parallax-bg-container">
+        <div id="bg1" class="bg-part foto1"></div>
+        <div id="bg2" class="bg-part foto2"></div>
+        <div class="overlay-dark"></div>
+    </div>
 
     <header>
         <img src="imagenes/logo.jpg" class="logo-img">
@@ -98,9 +107,6 @@
         <p style="font-size: 1.8em; color: var(--dorado);"><b>899 493 1166</b></p>
         <p>C. Cerró Azul 106-A, Col. Fuentes Coloniales, Reynosa</p>
         <p><b>Horario: Lunes a Domingo 8:30 AM a 10:00 PM</b></p>
-        <div style="margin-top: 20px;">
-            <span>🔵 FB: El Sazón Papatenco</span> | <span>📸 IG: @el_sazon_papatenco</span>
-        </div>
     </div>
 
     <a href="https://wa.me/528994931166" class="ws-float">Hacer Pedido por WhatsApp 📲</a>
@@ -110,11 +116,22 @@
             document.querySelectorAll('.reveal').forEach(el => {
                 if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
             });
-            document.querySelector('.parallax-bg').style.transform = `scale(1.1) translateY(${window.pageYOffset * 0.3}px)`;
+
+            const scrollPos = window.scrollY;
+            const bg1 = document.getElementById('bg1');
+            const bg2 = document.getElementById('bg2');
+
+            if (scrollPos > 1200) {
+                bg1.style.opacity = "0";
+                bg2.style.opacity = "1";
+            } else {
+                bg1.style.opacity = "1";
+                bg2.style.opacity = "0";
+            }
         });
+
         window.onload = () => {
             document.querySelectorAll('.reveal')[0].classList.add('active');
-            document.querySelectorAll('.reveal')[1].classList.add('active');
         };
     </script>
 </body>
