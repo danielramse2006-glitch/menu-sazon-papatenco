@@ -9,19 +9,9 @@
         :root { --rojo: #8e2113; --dorado: #f1c40f; --negro: #0a0a0a; --gris: rgba(26, 26, 26, 0.95); }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--negro); color: #fff; overflow-x: hidden; }
         
-        /* SISTEMA DE FONDOS QUE CAMBIAN AL DESLIZAR */
-        .parallax-bg-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-        }
-        .bg-part { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            transition: opacity 1.2s ease-in-out; 
-        }
-        .overlay-dark {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); z-index: 0; pointer-events: none;
-        }
+        .parallax-bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .bg-part { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: opacity 1.2s ease-in-out; }
+        .overlay-dark { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); z-index: 0; pointer-events: none; }
         
         .foto1 { background-image: url('imagenes/terraza.jpg'); opacity: 1; z-index: -2; }
         .foto2 { background-image: url('imagenes/terraza1.jpg'); opacity: 0; z-index: -1; }
@@ -33,13 +23,17 @@
         h2 { color: var(--dorado); text-align: center; text-transform: uppercase; margin: 60px 0 30px; text-shadow: 2px 2px 5px #000; border-bottom: 2px solid var(--rojo); display: table; margin-left: auto; margin-right: auto; padding-bottom: 5px; position: relative; z-index: 1; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; max-width: 1400px; margin: auto; position: relative; z-index: 1; }
-        .card { background: var(--gris); border-radius: 15px; overflow: hidden; border: 1px solid #333; transition: 0.4s ease; backdrop-filter: blur(5px); }
+        .card { background: var(--gris); border-radius: 15px; overflow: hidden; border: 1px solid #333; transition: 0.4s ease; backdrop-filter: blur(5px); display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-12px); border-color: var(--dorado); box-shadow: 0 15px 30px rgba(142, 33, 19, 0.5); }
         .card img { width: 100%; height: 200px; object-fit: cover; filter: brightness(0.8); }
-        .card-info { padding: 20px; text-align: center; }
+        .card-info { padding: 20px; text-align: center; flex-grow: 1; }
         .card-info h3 { color: var(--rojo); font-size: 1.2em; margin: 0; text-transform: uppercase; }
-        .card-info p { font-size: 0.9em; color: #ccc; margin: 10px 0; }
-        .price-tag { background: rgba(241, 196, 15, 0.1); color: var(--dorado); padding: 6px 12px; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 5px; border: 1px solid var(--dorado); }
+        .price-tag { background: rgba(241, 196, 15, 0.1); color: var(--dorado); padding: 6px 12px; border-radius: 5px; font-weight: bold; display: inline-block; margin: 10px 0; border: 1px solid var(--dorado); }
+
+        .option-box { background: rgba(142, 33, 19, 0.15); border: 1px dashed var(--dorado); border-radius: 10px; padding: 12px; margin-top: 10px; text-align: left; }
+        .option-title { color: var(--dorado); font-size: 0.75em; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 5px; }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag { background: #111; font-size: 0.75em; padding: 2px 8px; border-radius: 4px; border: 1px solid #444; color: #eee; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -56,7 +50,7 @@
 
     <header>
         <img src="imagenes/logo.jpg" class="logo-img">
-        <h1 style="font-size: 2.8em; text-shadow: 2px 2px 10px #000; margin-top: 20px;">EL SAZÓN PAPATENCO</h1>
+        <h1 style="font-size: 2.8em; text-shadow: 2px 2px 10px #000; margin-top: 20px;">EL SAZÓN PAPANTECO</h1>
     </header>
 
     <div class="bienvenida reveal">
@@ -65,76 +59,86 @@
 
     <h2>🔥 Especialidades</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/combo.jpg"><div class="card-info"><h3>Combo Surtido (12 pzas)</h3><p>Sopes, tostadas, blanditos, molotes, flautas y empanadas</p><span class="price-tag">$300.00</span></div></div>
-        <div class="card"><img src="imagenes/estrujada.jpg"><div class="card-info"><h3>Estrujada</h3><p>Cecina o Chuleta con frijoles y aguacate</p><span class="price-tag">$160.00</span></div></div>
-        <div class="card"><img src="imagenes/chilaquiles.jpg"><div class="card-info"><h3>Chilaquiles</h3><p>Rojos, Verdes o Campechanos</p><span class="price-tag">$160.00</span></div></div>
+        <div class="card"><img src="imagenes/combo.jpg"><div class="card-info"><h3>Combo Surtido (12 pzas)</h3><p>2 sopes, 2 tostadas, 2 blanditos, 2 molotes, 2 flautas y 2 empanadas</p><span class="price-tag">$300.00</span></div></div>
+        <div class="card"><img src="imagenes/estrujada.jpg"><div class="card-info"><h3>Estrujada</h3><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🥩 Carnes:</span><div class="tag-container"><span class="tag">Cecina</span><span class="tag">Chuleta</span><span class="tag">Pechuga</span><span class="tag">Enchilada</span><span class="tag">Huevo</span></div></div></div></div>
+        <div class="card"><img src="imagenes/chilaquiles.jpg"><div class="card-info"><h3>Chilaquiles</h3><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🌶️ Salsas:</span><div class="tag-container"><span class="tag">Rojos</span><span class="tag">Verdes</span><span class="tag">Campechanos</span></div></div></div></div>
     </div>
 
     <h2>🌮 Antojitos Papantecos</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/enchiladas.jpg"><div class="card-info"><h3>Enchiladas (6 pzas)</h3><p>Entomatadas, Pipian, Morita, Chile Seco o Mole</p><span class="price-tag">Ord: $160 | 1/2: $130</span></div></div>
-        <div class="card"><img src="imagenes/texanos.jpg"><div class="card-info"><h3>Texanos (4 pzas)</h3><p>Chorizo, queso asadero y cecina</p><span class="price-tag">Ord: $156 | 1/2: $100</span></div></div>
-        <div class="card"><img src="imagenes/enmoladas.jpg"><div class="card-info"><h3>Enmoladas (5 pzas)</h3><p>Tortilla frita en mole con pollo natural</p><span class="price-tag">Ord: $160 | 1/2: $110</span></div></div>
-        <div class="card"><img src="imagenes/pellizcada.jpg"><div class="card-info"><h3>Pellizcada (1 pza)</h3><p>Chorizo y cecina con aguacate</p><span class="price-tag">$60.00</span></div></div>
-        <div class="card"><img src="imagenes/empanadas.jpg"><div class="card-info"><h3>Empanadas (5 pzas)</h3><p>Pollo, Puerco, Res o Choriqueso</p><span class="price-tag">Ord: $160 | 1/2: $110</span></div></div>
-        <div class="card"><img src="imagenes/molotes.jpg"><div class="card-info"><h3>Molotes (6 pzas)</h3><p>Puerco, Pollo o Res (Ahogados)</p><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
-        <div class="card"><img src="imagenes/sopes.jpg"><div class="card-info"><h3>Sopes (5 pzas)</h3><p>Desebrada con frijoles y aguacate</p><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
-        <div class="card"><img src="imagenes/picadas.jpg"><div class="card-info"><h3>Picadas (5 pzas)</h3><p>Chorizo al comal y manteca</p><span class="price-tag">Ord: $155 | 1/2: $100</span></div></div>
+        <div class="card"><img src="imagenes/enchiladas.jpg"><div class="card-info"><h3>Enchiladas (6 pzas)</h3><span class="price-tag">Ord: $160 | Mixtas: $170</span><div class="option-box"><span class="option-title">🌶️ Salsas:</span><div class="tag-container"><span class="tag">Entomatadas</span><span class="tag">Enfrijoladas</span><span class="tag">Pipian</span><span class="tag">Morita</span><span class="tag">Mole</span><span class="tag">Chile Seco</span><span class="tag">Verdes</span></div></div></div></div>
+        <div class="card"><img src="imagenes/enmoladas.jpg"><div class="card-info"><h3>Enmoladas (5 pzas)</h3><span class="price-tag">Ord: $160 | 1/2: $110</span><div class="option-box"><span class="option-title">🍗 Pieza de Pollo:</span><div class="tag-container"><span class="tag">Pechuga</span><span class="tag">Muslo</span><span class="tag">Pierna</span></div></div></div></div>
+        <div class="card"><img src="imagenes/sopes.jpg"><div class="card-info"><h3>Sopes (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/tostadas.jpg"><div class="card-info"><h3>Tostadas (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/flautas.jpg"><div class="card-info"><h3>Flautas (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/blanditos.jpg"><div class="card-info"><h3>Blanditos (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/blanditas.jpg"><div class="card-info"><h3>Blanditas (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/molotes.jpg"><div class="card-info"><h3>Molotes (6 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/empanadas.jpg"><div class="card-info"><h3>Empanadas (5 pzas)</h3><span class="price-tag">Ord: $160 | 1/2: $110</span></div></div>
+        <div class="card"><img src="imagenes/picadas.jpg"><div class="card-info"><h3>Picadas (5 pzas)</h3><span class="price-tag">Ord: $155 | 1/2: $100</span></div></div>
     </div>
 
-    <h2>✨ Bocoles (8:30 AM - 1:00 PM)</h2>
+    <h2>🍲 Comidas Corridas</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/bocoles.jpg"><div class="card-info"><h3>Bocoles de Guisado</h3><p>Chicharrón, Huevo, Chorizo, Queso o Asado</p><span class="price-tag">Ord (6): $155 | 1/2 (3): $95</span></div></div>
+        <div class="card"><img src="imagenes/mole.jpg"><div class="card-info"><h3>Mole de Pollo</h3><span class="price-tag">$160.00</span><div class="option-box"><span class="option-title">🍗 Elige tu pieza:</span><div class="tag-container"><span class="tag">Pechuga</span><span class="tag">Muslo</span><span class="tag">Pierna</span></div></div></div></div>
+        <div class="card"><img src="imagenes/caldo.jpg"><div class="card-info"><h3>Caldo de Pollo</h3><span class="price-tag">$150.00</span><div class="option-box"><span class="option-title">🍗 Elige tu pieza:</span><div class="tag-container"><span class="tag">Pechuga</span><span class="tag">Muslo</span><span class="tag">Pierna</span></div></div></div></div>
+        <div class="card"><img src="imagenes/costilla_verde.jpg"><div class="card-info"><h3>Costillas en Salsa Verde</h3><span class="price-tag">$160.00</span></div></div>
+        <div class="card"><img src="imagenes/costilla_seco.jpg"><div class="card-info"><h3>Costillas en Chile Seco</h3><span class="price-tag">$160.00</span></div></div>
+        <div class="card"><img src="imagenes/bisteck.jpg"><div class="card-info"><h3>Bistec Ranchero</h3><span class="price-tag">$160.00</span></div></div>
+        <div class="card"><img src="imagenes/chileajo.jpg"><div class="card-info"><h3>Chileajo de Puerco</h3><span class="price-tag">$160.00</span></div></div>
     </div>
 
-    <h2>🥣 Caldos y Tradición</h2>
+    <h2>🍰 Postres</h2>
     <div class="grid reveal">
+        <div class="card">
+            <img src="imagenes/postre1.jpg">
+            <div class="card-info">
+                <h3>Plátanos Fritos</h3>
+                <span class="price-tag">$70.00</span>
+                <div class="option-box"><span class="option-title">✨ Con:</span><div class="tag-container"><span class="tag">Lechera</span><span class="tag">Crema</span><span class="tag">Queso</span></div></div>
+            </div>
+        </div>
+        <div class="card"><img src="imagenes/postre2.jpg"><div class="card-info"><h3>Flan Napolitano</h3><span class="price-tag">$70.00</span></div></div>
+        <div class="card"><img src="imagenes/chocoflan.jpg"><div class="card-info"><h3>Chocoflan</h3><span class="price-tag">$70.00</span></div></div>
+        <div class="card"><img src="imagenes/cheesecake.jpg"><div class="card-info"><h3>Cheesecake Fresa Chocolate</h3><span class="price-tag">$80.00</span></div></div>
+        <div class="card"><img src="imagenes/gelatina.jpg"><div class="card-info"><h3>Gelatina Mosaico</h3><span class="price-tag">$100.00</span></div></div>
+    </div>
+
+    <h2>🫔 Tamales y Otros</h2>
+    <div class="grid reveal">
+        <div class="card"><img src="imagenes/tamalcuchara.jpg"><div class="card-info"><h3>Tamal de Cuchara</h3><span class="price-tag">$60.00</span></div></div>
+        <div class="card"><img src="imagenes/tamalpicadillo.jpg"><div class="card-info"><h3>Tamal de Picadillo</h3><span class="price-tag">$30.00</span></div></div>
+        <div class="card"><img src="imagenes/tamalmole.jpg"><div class="card-info"><h3>Tamal de Mole</h3><span class="price-tag">$50.00</span></div></div>
         <div class="card"><img src="imagenes/zacahuil.jpg"><div class="card-info"><h3>Zacahuil (Vie-Dom)</h3><span class="price-tag">Gde: $110 | CH: $80</span></div></div>
-        <div class="card"><img src="imagenes/menudo.jpg"><div class="card-info"><h3>Menudo</h3><span class="price-tag">Gde: $185 | CH: $110</span></div></div>
-        <div class="card"><img src="imagenes/pozole.jpg"><div class="card-info"><h3>Pozole</h3><span class="price-tag">Gde: $175 | CH: $100</span></div></div>
+        <div class="card"><img src="imagenes/bocoles.jpg"><div class="card-info"><h3>Bocoles (6)</h3><span class="price-tag">Ord: $155 | 1/2: $95</span><div class="option-box"><span class="option-title">🍳 Guisados:</span><div class="tag-container"><span class="tag">Chicharrón</span><span class="tag">Huevo</span><span class="tag">Chorizo</span><span class="tag">Queso</span><span class="tag">Asado</span></div></div></div></div>
     </div>
 
-    <h2>🍰 Postres y Bebidas</h2>
+    <h2>🥤 Bebidas</h2>
     <div class="grid reveal">
-        <div class="card"><img src="imagenes/postre1.jpg"><div class="card-info"><h3>Plátanos Fritos</h3><span class="price-tag">$70.00</span></div></div>
-        <div class="card"><img src="imagenes/postre2.jpg"><div class="card-info"><h3>Flan / Chocoflan</h3><span class="price-tag">$70.00</span></div></div>
+        <div class="card"><img src="imagenes/aguas.jpg"><div class="card-info"><h3>Aguas Naturales</h3><p style="color: var(--dorado);">Limón, Jamaica o Horchata</p><span class="price-tag">1 Lt: $60 | 1/2 Lt: $40</span></div></div>
         <div class="card"><img src="imagenes/cafe.jpg"><div class="card-info"><h3>Café de Olla</h3><span class="price-tag">$50.00</span></div></div>
-        <div class="card"><img src="imagenes/aguas.jpg"><div class="card-info"><h3>Aguas Naturales</h3><span class="price-tag">1 Lt: $60 | 1/2 Lt: $40</span></div></div>
     </div>
 
-    <div style="text-align: center; padding: 80px 20px; background: rgba(0,0,0,0.8); margin-top: 50px; border-top: 3px solid var(--rojo);">
+    <div style="text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.8); margin-top: 50px; border-top: 3px solid var(--rojo);">
         <h2>📍 SERVICIO A DOMICILIO</h2>
         <p style="font-size: 1.8em; color: var(--dorado);"><b>899 493 1166</b></p>
         <p>C. Cerró Azul 106-A, Col. Fuentes Coloniales, Reynosa</p>
-        <p><b>Horario: Lunes a Domingo 8:30 AM a 10:00 PM</b></p>
     </div>
 
-    <a href="https://wa.me/528994931166" class="ws-float">Hacer Pedido por WhatsApp 📲</a>
+    <a href="https://wa.me/528994931166" class="ws-float">Hacer Pedido WhatsApp 📲</a>
 
     <script>
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
             });
-
             const scrollPos = window.scrollY;
             const bg1 = document.getElementById('bg1');
             const bg2 = document.getElementById('bg2');
-
-            if (scrollPos > 1200) {
-                bg1.style.opacity = "0";
-                bg2.style.opacity = "1";
-            } else {
-                bg1.style.opacity = "1";
-                bg2.style.opacity = "0";
-            }
+            if (scrollPos > 1200) { bg1.style.opacity = "0"; bg2.style.opacity = "1"; }
+            else { bg1.style.opacity = "1"; bg2.style.opacity = "0"; }
         });
-
-        window.onload = () => {
-            document.querySelectorAll('.reveal')[0].classList.add('active');
-        };
+        window.onload = () => { document.querySelectorAll('.reveal')[0].classList.add('active'); };
     </script>
 </body>
 </html>
-
-
